@@ -5,6 +5,12 @@ Petit script python pour "traquer"  les gens qui géolocalisent leurs tweet et e
 
 A la base, je l'ai fais pour m'entrainer à utiliser Python et Git 
 
+Installation :
+Installer Python (fonctionne normalement avec Python 2.7 et 3+)
+
+Avant de pouvoir uiliser ce script, il faut installer la librairie TwitterAPI disponible ici : https://github.com/geduldig/TwitterAPI
+
+
 Configuration :
 
 Créer un fichier "oauth.py" contenant les informations suivantes : 
