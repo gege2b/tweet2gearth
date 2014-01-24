@@ -4,12 +4,8 @@ import json
 from sys import argv
 import urllib
 import os
+import oauth
 
-
-consumerKey = ''
-consumerSecret = ''
-accessToken = ''
-accessTokenSecret = ''
 
 
 """
@@ -74,7 +70,7 @@ print '-----------------------------------------------------\n\n'
 got_geo = False
 
 try:
-    api = TwitterAPI(consumerKey, consumerSecret, accessToken, accessTokenSecret)
+    api = TwitterAPI(oauth.consumer_key, oauth.consumer_secret, oauth.access_token_key, oauth.access_token_secret)
 
 
     tweets = api.request('statuses/user_timeline', params )
