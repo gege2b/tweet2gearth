@@ -23,7 +23,8 @@ access_token_key=''
 
 access_token_secret=''
 
-
 et placez-le dans le même répertoire que le script. Il s'agit des clés pour l'API Twitter
+
+Ces informations sont obligatoires, et pour les avoir il faut créer un compte "developpeur" sur Twitter ( https://dev.twitter.com/ ) et créer une application (qui sera utilisée par ce script par la suite)
 
 
