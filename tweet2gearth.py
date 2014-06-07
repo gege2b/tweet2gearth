@@ -5,7 +5,8 @@ from sys import argv
 import urllib
 import os
 import oauth
-
+from distutils.core import setup
+import py2exe
 
 
 """
@@ -16,8 +17,9 @@ opt_trim_user = 0
 opt_count = 50
 opt_noreplies = 1
 opt_rts = 0
+opt_count = 400
 
-opt_save = False
+opt_save = True
 opt_get_profile_img = False
 
 
@@ -34,7 +36,7 @@ for index in range(len(argv)) :
     if argv[index] == '-rts':
         opt_rts = 1
         
-    if argv[index] == '-s':
+    if argv[index] == '-n':
         opt_save = True
 
     if argv[index] == '-i':
@@ -42,16 +44,16 @@ for index in range(len(argv)) :
         opt_trim_user = False
 
 
-    if argv[index] == '-h':
+    if (argv[index] == '-h' or argv[index] == '--help'):
         print "Utilitaire de tracking sur Twitter"
         print ""
         print "Usage : " + argv[0] + " [options] screen_name"
-        print "     -c X : retourne X tweets"
-        print "     -r : inclu les réponses aux tweet dans les résultats"
-        print "     -t : inclu les données de l'utilisateur dans les résultats"
-        print "     -rts : inclus les retweets"
-        print "     -s : sauvegarde un fichier KML (du nom de screen_name)"
-        print "     -i : récupàre les images de profile"
+        print "     -c X : retourne X tweets (defaut : " + str(opt_count) + ")"
+        print "     -r : inclu les réponses aux tweet dans les résultats (defaut : " + str(opt_noreplies) + ")"
+        print "     -t : inclu les données de l'utilisateur dans les résultats (defaut : " +  str(opt_trim_user) + ")"
+        print "     -rts : inclus les retweets (defaut : " + str(opt_rts) + ")"
+        print "     -n : Ne pas sauvegarder le fichier KML"
+        print "     -i : récupère les images de profile (defaut : " + str(opt_get_profile_img) + ")"
         print "     screen_name : nom de l'utilisateur à tracker, obligatoire"
         quit()
 
