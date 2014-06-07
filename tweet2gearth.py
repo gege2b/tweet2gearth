@@ -17,6 +17,7 @@ opt_noreplies = 1
 opt_rts = 0
 opt_count = 400
 
+opt_target = False
 opt_save = True
 opt_get_profile_img = False
 
@@ -36,6 +37,9 @@ for index in range(len(argv)) :
         
     if argv[index] == '-n':
         opt_save = True
+        
+    if argv[index] == '-p':
+        opt_target = True
 
     if argv[index] == '-i':
         opt_get_profile_img = True
@@ -52,6 +56,7 @@ for index in range(len(argv)) :
         print "     -rts : inclus les retweets"
         print "     -n : Ne pas sauvegarder le fichier KML"
         print "     -i : récupère les images de profile"
+        print "     -p : dessine un chemin le long des tweet"
         print "     screen_name : nom de l'utilisateur à tracker, obligatoire"
         quit()
 
@@ -75,6 +80,7 @@ try:
 
     tweets = api.request('statuses/user_timeline', params )
     kml = "<?xml version='1.0' encoding='UTF-8'?>\n<kml xmlns='http://www.opengis.net/kml/2.2'>\n<Document>"
+    coordinates_trajet = ""
 
     for item in tweets.get_iterator():
         if item['user']['profile_image_url'] is not None:
@@ -88,8 +94,13 @@ try:
         if item['coordinates'] is not None:
             print item['coordinates']['coordinates']
             got_geo = True
-            kml = kml + "<Placemark><name>" + item['id_str'] + "</name><description>" + item['text'] + "\n" + item['created_at'] + "</description><time>" + item['created_at'] + "</time><Point><coordinates>" + str(item['coordinates']['coordinates'][0]) + ","  + str(item['coordinates']['coordinates'][1]) + "</coordinates></Point></Placemark>\n" 
-            
+            coordinates = str(item['coordinates']['coordinates'][0]) + ","  + str(item['coordinates']['coordinates'][1])
+            kml = kml + "<Placemark><name>" + item['id_str'] + "</name><description>" + item['text'] + "\n" + item['created_at'] + "</description><time>" + item['created_at'] + "</time><Point><coordinates>" + coordinates + "</coordinates></Point></Placemark>\n" 
+            coordinates_trajet = coordinates_trajet + ' ' + coordinates
+			
+    if opt_target:
+        kml = kml + 	"<Placemark><name>Trajet</name><styleUrl>#m_ylw-pushpin</styleUrl><LineString><tessellate>1</tessellate><coordinates>" + coordinates_trajet + "</coordinates></LineString></Placemark>"
+		
     kml = kml + "</Document></kml>"
 
     if opt_save and got_geo:
