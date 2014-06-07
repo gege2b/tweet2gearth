@@ -44,4 +44,6 @@ Si le pseudo est valide et s'il possède des tweet géolocalisés, un fichier KM
          -rts : inclus les retweets  
          -n : Ne pas sauvegarder le fichier KML  
          -i : récupère les images de profile  
+         -p : dessine un chemin le long des tweet
+         
          screen_name : nom de l'utilisateur à tracker, obligatoire  
