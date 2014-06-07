@@ -82,7 +82,7 @@ try:
     kml = "<?xml version='1.0' encoding='UTF-8'?>\n<kml xmlns='http://www.opengis.net/kml/2.2'>\n<Document>"
     coordinates_trajet = ""
 
-    for item in tweets.get_iterator():
+    for item in sorted(tweets.get_iterator(), key=lambda item: item['id']):
         if item['user']['profile_image_url'] is not None:
             locale_profile_img = opt_screen_name + "_profile"
             profile_img = item['user']['profile_image_url']
