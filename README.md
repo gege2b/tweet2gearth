@@ -35,11 +35,11 @@ python tweet2geart pseudo_twitter
 Si le pseudo est valide et s'il possède des tweet géolocalisés, un fichier KML sera créé.
 
 Paramètres :
-python tweet2gearth.py [options] screen_name
-     -c X : retourne X tweets (defaut : 400)
-     -r : inclu les réponses aux tweet dans les résultats
-     -t : inclu les données de l'utilisateur dans les résultats
-     -rts : inclus les retweets
-     -n : Ne pas sauvegarder le fichier KML
-     -i : récupère les images de profile
-     screen_name : nom de l'utilisateur à tracker, obligatoire
+    python tweet2gearth.py [options] screen_name
+         -c X : retourne X tweets (defaut : 400)
+         -r : inclu les réponses aux tweet dans les résultats
+         -t : inclu les données de l'utilisateur dans les résultats
+         -rts : inclus les retweets
+         -n : Ne pas sauvegarder le fichier KML
+         -i : récupère les images de profile
+         screen_name : nom de l'utilisateur à tracker, obligatoire
