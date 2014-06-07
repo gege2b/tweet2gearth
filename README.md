@@ -11,7 +11,7 @@ Installer Python (fonctionne normalement avec Python 2.7 et 3+)
 Avant de pouvoir utiliser ce script, il faut installer la librairie TwitterAPI disponible ici : https://github.com/geduldig/TwitterAPI
 
 
-Configuration :
+*Configuration :*
 
 Créer un fichier "oauth.py" contenant les informations suivantes : 
 
@@ -28,13 +28,15 @@ et placez-le dans le même répertoire que le script. Il s'agit des clés pour l
 Ces informations sont obligatoires, et pour les avoir il faut créer un compte "developpeur" sur Twitter ( https://dev.twitter.com/ ) et créer une application (qui sera utilisée par ce script par la suite)
 
 
-Fonctionnement : 
+*Fonctionnement : *
+
 Depuis une ligne de commande, lancer le script : 
 python tweet2geart pseudo_twitter
 
 Si le pseudo est valide et s'il possède des tweet géolocalisés, un fichier KML sera créé.
 
-Paramètres :  
+*Paramètres :  *
+
     python tweet2gearth.py [options] screen_name  
          -c X : retourne X tweets (defaut : 400)  
          -r : inclu les réponses aux tweet dans les résultats  
